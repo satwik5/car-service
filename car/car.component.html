@@ -1,0 +1,87 @@
+<div class="container-fluid"> 
+    <div class="row header">
+       <h4><img class='logo' [src]='imgUrl'/><b>GaragePlug</b>&nbsp;<sub><i class='sub'>DETAILING CENTER</i></sub></h4>
+    </div>
+</div>
+<!-- page loader useful for fetching all the required api etc-->
+<div class='loadhead' *ngIf='pageLoader'>
+    <div class="loader"></div>
+</div>
+<div class='container' *ngIf='!pageLoader'>
+    <div class="container" *ngIf='!proceedClick'>
+        <div *ngIf='!continueClick' class='row'>
+            <h4 class='servicehead col-12'>SERVICES</h4>
+        <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 d-flex justify-content-center padding-category"
+            *ngFor="let item of services">
+            <div class="popular container-fluid row"
+            [ngClass]="item.checked==true?'checked':''">
+                <div class="img-div col-12 full-hr" (click)="imgClick(item.name)"
+                    [title]="item.name">
+                    <img class="popImage" [src]="item.img" alt="Card image">
+                </div>
+                <div class="col-12">
+                    <h6 class="product-heading">{{item.name}}</h6>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class='col-12'><button class='btn btn-secondary right' (click)="onContinue()">CONTINUE</button></div>
+        </div>
+        <div *ngIf='continueClick' class='row'>
+            <h4 class='servicehead col-12'>SELECT SIZE</h4>
+            <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 d-flex justify-content-center padding-category"
+                *ngFor="let item of size">
+                <div class="popular container-fluid row"
+                [ngClass]="item.checked==true?'checked':''">
+                    <div class="img-div col-12 full-hr" (click)="sizeClick(item.name)"
+                        [title]="item.name">
+                        <img class="popImage" [src]="item.img" alt="Card image">
+                    </div>
+                    <div class="col-12">
+                        <h6 class="product-heading">{{item.name}}</h6>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class='col-12'><button class='btn btn-secondary right' (click)="onProceed()">CONTINUE</button></div>
+        </div>
+    </div>
+    <div *ngIf='proceedClick' class='row'>
+        <h4 class='servicehead col-12'>PRICE</h4>
+        <b class='col-12'>Selected Services</b>
+        <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 d-flex justify-content-center padding-category"
+            *ngFor="let item of checkedServices">
+            <div class="container-fluid row">
+                <div class="img-div col-12 full-hr" 
+                    [title]="item.name">
+                    <img class="popImage" [src]="item.img" alt="Card image">
+                </div>
+                <div class="col-12">
+                    <h6 class="product-heading">{{item.name}}</h6>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class='col-12'>
+            <button class=' btn btn-link right' (click)='onChange()'>change</button>
+        </div>
+        <b class='col-12'>Selected Size</b>
+        <div class="col-xl-3 col-lg-4 col-sm-6 col-xs-12 d-flex justify-content-center padding-category"
+            *ngFor="let item of selectedSize">
+            <div class="container-fluid row">
+                <div class="img-div col-12 full-hr"
+                    [title]="item.name">
+                    <img class="popImage" [src]="item.img" alt="Card image">
+                </div>
+                <div class="col-12">
+                    <h6 class="product-heading">{{item['name']}}</h6>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class='col-12'><b>Total Price:<span class='text-success right'>&#8377; 1450</span> </b></div>
+        <div class='col-12'><button class='btn btn-secondary right'>CONTINUE</button></div>
+    </div>
+
+</div>

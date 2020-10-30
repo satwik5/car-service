@@ -1,0 +1,107 @@
+.header{
+    color:white;
+    background-color:#0e634c;
+    height: 80px;
+}
+.logo{
+    width: 80px;
+    height:80px;
+}
+.loadhead{
+    margin: auto;
+    margin-top:5%;
+    text-align: center;
+    color:rgb(87, 101, 114);
+    font-family: sans-serif;
+    font-size: 32px;
+    line-height: 31px;
+    font-weight: 400;
+  }
+
+.loader {
+    margin: auto;
+    margin-top:6%;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #0e634c;
+    border-right: 16px solid rgb(97, 97, 97);
+    border-bottom: 16px solid #0e634c;
+    border-left: 16px solid rgb(163, 163, 163);
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.home{
+    float: right;
+}
+.sub{
+    font-style: italic;
+    font-size: small;
+}
+
+.padding-category{
+    padding:18px 18px 8px 18px;
+}
+.popular{
+    opacity: 0.6;
+}
+.popular:hover{
+    opacity: 1;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.checked{
+    opacity: 1;
+    box-shadow:0 0 10px #0e634c; 
+}
+.checked:hover{
+    opacity: 1;
+    box-shadow:0 0 10px #0e634c !important; 
+}
+.img-div{
+    height: 100px;
+    cursor: pointer;
+}
+
+.popImage{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+.servicehead{
+    text-align: center;
+    align-content: center;
+       font-weight: bold;
+    font-family: sans-serif;
+}
+.product-heading{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.right{
+    float: right;
+}
+hr{
+    margin-left: 15px;
+    width: 96%;
+    border-bottom: 1px solid rgb(177, 177, 177);
+}
