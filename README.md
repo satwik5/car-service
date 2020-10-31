@@ -1,6 +1,7 @@
 # car-service
 
 Please fetch the car folder in to path: Angular\projectname\src\app\car 
+
 Please fetch the images folder in to path: \Angular\projectname\src\assets\images\car
 
 Please modify or add the path line in app-routing.module.ts as per below
