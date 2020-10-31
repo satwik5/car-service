@@ -46,15 +46,22 @@ export class CarComponent implements OnInit {
       this.pageLoader = false;
     }
     myAsync();
-  }
-  onProceed(){
-    this.checkedServices=[]
-    this.proceedClick=true;
-    for(let i=0;i<this.services.length;i++){
-      if(this.services[i].checked==true){
-        this.checkedServices.push(this.services[i]);
-      }
+    if (localStorage.getItem("services") !== null){
+      this.services = JSON.parse(localStorage.getItem("services"));
     }
+    if (localStorage.getItem("size") !== null){
+      this.size = JSON.parse(localStorage.getItem("size"));
+    }
+    this.checkedServices = JSON.parse(localStorage.getItem("checkedServices"));
+    this.selectedSize = JSON.parse(localStorage.getItem("size"));
+    this.proceedClick= JSON.parse(localStorage.getItem("proceedClick"));
+    this.continueClick= JSON.parse(localStorage.getItem("continueClick"));
+  }
+  //
+  onProceed(){
+    this.proceedClick=true;
+    localStorage.setItem("proceedClick", JSON.stringify(true)); 
+    localStorage.setItem('size',JSON.stringify(this.size));
   }
   imgClick(val){
     for(let i=0;i<this.services.length;i++){
@@ -67,6 +74,19 @@ export class CarComponent implements OnInit {
   onContinue(){
     console.log('continue')
     this.continueClick=true;
+    this.checkedServices=[];
+    for(let i=0;i<this.services.length;i++){
+      if(this.services[i].checked==true){
+        this.checkedServices.push(this.services[i]);
+      }
+    }
+    localStorage.setItem('services',JSON.stringify(this.services));
+    localStorage.setItem("checkedServices", JSON.stringify(this.checkedServices)); 
+    localStorage.setItem("continueClick", JSON.stringify(this.continueClick)); 
+  }
+  goBack(){
+    this.continueClick=false;
+    localStorage.setItem("continueClick", JSON.stringify(this.continueClick)); 
   }
   sizeClick(val){
     this.selectedSize=[]
@@ -78,11 +98,13 @@ export class CarComponent implements OnInit {
         this.size[i].checked=false
       }
     }
-    console.log(this.selectedSize)
+    localStorage.setItem("size", JSON.stringify(this.selectedSize));
   }
   onChange(){
     this.proceedClick=false;
     this.continueClick=false;
+    localStorage.setItem("continueClick", JSON.stringify(false)); 
+    localStorage.setItem("proceedClick", JSON.stringify(false)); 
   }
 
 }
