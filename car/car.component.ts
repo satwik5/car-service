@@ -98,7 +98,7 @@ export class CarComponent implements OnInit {
         this.size[i].checked=false
       }
     }
-    localStorage.setItem("size", JSON.stringify(this.selectedSize));
+    localStorage.setItem("size", JSON.stringify(this.size));
   }
   onChange(){
     this.proceedClick=false;
